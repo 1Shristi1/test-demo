@@ -27,7 +27,7 @@ const Home = () => {
           Random Text
         </div>
         <div>
-          <img src="https://rupeek-website-assets.s3.ap-south-1.amazonaws.com/landing-pages/cards/goldReward1gm.png" alt="Image" width="100%" height="auto" />
+          <img src="https://rupeek-website-assets.s3.ap-south-1.amazonaws.com/landing-pages/cards/goldReward1gm.png" alt="something" width="100%" height="auto" />
         </div>
       </div>
   )
