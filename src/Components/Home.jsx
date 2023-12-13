@@ -1,62 +1,50 @@
-import React from 'react'
-import { createUseStyles } from "react-jss";
+import React from 'react';
+import { createUseStyles } from 'react-jss';
 
-const useStyle = createUseStyles({
-  wrapper:{
+const useStyles = createUseStyles({
+  wrapper: {
     borderRadius: '16px',
-    backgroundColor: "#262626",
-    padding: '24px 16px',
     width: '100%',
-    color: "white",
-   backgroundImage: "url(couponBackground.png)",
-    backgroundSize: 'cover',
-    display:'flex',
-    justifyContent: 'space-between',
-  },
-  innerConatiner: {
-  
-    display: "flex",
-    flexDirection: "column",
-    gap: '8px',
-  },
-  text: {
-    fontFamily: '"Inter- Medium", Helvetica',
-    fontSize: "12px",
-    fontWeight: "500",
-    lineHeight: "18px",
+    padding: '32px 16px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '4px',
+    color: '#f2f2f2',
+    backgroundImage: "url(reward.png)",
+    backgroundSize: '100% 100%', 
+    
   },
   header: {
-fontFamily: '"Inter-Semibold", Helvetica',
-fontSize: "14px",
-fontWeight: "600",
-lineHeight: "22px",
-
+    fontFamily: '"Inter-Semibold", Helvetica',
+    fontSize: '16px',
+    fontWeight: '600',
+    lineHeight: '24px',
+  },
+  text: {
+    fontFamily: '"Inter-Regular", Helvetica',
+    fontSize: '12px',
+    fontWeight: '400',
+    lineHeight: '18px',
+    color: '#a6a6a6',
+    letterSpacing: '0.24px',
   },
 });
 
 const Home = () => {
-  const classes = useStyle();
+  const classes = useStyles();
+
   return (
-
     <div className={classes.wrapper}>
-      <div className={classes.innerConatiner}>
-      <p className={classes.text}>
-        My reward
-      </p>
-      <p className={classes.header}>
-      50% off on Gold 
-Loan Interest
-      </p>
-    
-  
+        <p className={classes.header}>
+        Get 1 gm of Gold
+        </p>
+        <p className={classes.text}>
+          for ₹8,000 monthly spend
+        </p>
+       
       </div>
-      <img src= "https://cdn-icons-png.flaticon.com/512/8913/8913819.png " alt= "gift" height="100px" width= "100px"/>
+  
+  );
+};
 
-     
-    </div>
-
-  )
-
-}
-
-export default Home
+export default Home;
