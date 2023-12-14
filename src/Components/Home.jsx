@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
 })
 
 const Home = () => {
- // const [tokenState, setTokenState] = useState(0);
+  //const [tokenState, setTokenState] = useState(0);
   const [bannerData, setBannerData] = useState({
     offerType: "",
     offerValue: "",
@@ -23,8 +23,13 @@ const Home = () => {
   // useEffect(() => {
   //   const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJhbm9uIiwKICAgICJpc3MiOiAic3VwYWJhc2UtZGVtbyIsCiAgICAiaWF0IjogMTY0MTc2OTIwMCwKICAgICJleHAiOiAxNzk5NTM1NjAwCn0.dc_X5iR_VP_qT0zsiyj_I_OZ2T9FtRU2BBNWN8Bu4GE";
   //   const promised_id = "765272f1-e525-4228-8123-5faf47a365a7";
-  //   sessionStorage.setItem('token', token);
-  //   sessionStorage.setItem('promised_reward_id', promised_id);
+
+  //   const sessionData = {
+  //     'token': token,
+  //     'cardId': promised_id
+
+  //   }
+  //   sessionStorage.setItem('sessionData', JSON.stringify(sessionData));
   //   setTokenState(1);
   // }, []);
 
@@ -48,13 +53,19 @@ const Home = () => {
   }
 
   useEffect(() => {
-      const sessiondata = sessionStorage.getItem('sessionData');
+    //  if(tokenState === 1)
+    //  {
+      // const sessiondata = sessionStorage.getItem('sessionData');
     
-      const data = JSON.parse(sessiondata);
-      console.log(data);
-      const token = data.token;
-      const promised_id = data.cardId;
+      // const data = JSON.parse(sessiondata);
+      // console.log(data);
+      // const token = data.token;
+      // const promised_id = data.cardId;
+      const token = sessionStorage.getItem('token');
+      const promised_id = sessionStorage.getItem('cardId');
+
       fetchRewardType(token, promised_id);
+    // }
   }, []);
   return (
     < div className={classes.mainContainer}>
