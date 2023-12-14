@@ -34,16 +34,16 @@ minHeight: '100vh',
   },
 });
 
-const GoldCoin = () => {
+const GoldCoin = ({offerValue, minimumSpend}) => {
   const classes = useStyles();
 
   return (
  <div className={classes.wrapper}>
         <p className={classes.header}>
-        Get 1 gm of Gold
+        Get {offerValue} gm of Gold
         </p>
         <p className={classes.text}>
-          for ₹8,000 monthly spend
+          for ₹{minimumSpend} monthly spend
         </p>
        
       </div>

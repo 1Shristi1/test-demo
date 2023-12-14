@@ -30,16 +30,16 @@ const useStyles = createUseStyles({
   },
 });
 
-const Cashback = () => {
+const Cashback = ({offerValue, minimumSpend}) => {
   const classes = useStyles();
 
   return (
  <div className={classes.wrapper}>
         <p className={classes.header}>
-        50% off on Gold Loan Interest
+        {offerValue}% off on Gold Loan Interest
         </p>
         <p className={classes.text}>
-        for ₹10,000 monthly spend
+        for ₹{minimumSpend} monthly spend
         </p>
        
       </div>
