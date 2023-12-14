@@ -48,7 +48,10 @@ const Home = () => {
   }
 
   useEffect(() => {
-      const data = sessionStorage.getItem('sessionData');
+      const sessiondata = sessionStorage.getItem('sessionData');
+    
+      const data = JSON.parse(sessiondata);
+      console.log(data);
       const token = data.token;
       const promised_id = data.cardId;
       fetchRewardType(token, promised_id);
