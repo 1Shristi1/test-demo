@@ -2,10 +2,6 @@ import React from 'react';
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
-  mainContainer: {
-backgroundColor:'#131313',
-minHeight: '100vh',
-  },
   wrapper: {
     borderRadius: '16px',
     width: '100%',

@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
 })
 
 const Home = () => {
-  //const [tokenState, setTokenState] = useState(0);
+ // const [tokenState, setTokenState] = useState(false);
   const [bannerData, setBannerData] = useState({
     offerType: "",
     offerValue: "",
@@ -46,7 +46,9 @@ const Home = () => {
         offerType: offertype,
         offerValue: offervalue,
         minimumSpend: minimumspend
-      })
+      });
+
+
     } catch (error) {
       console.log(error);
     }
@@ -55,22 +57,34 @@ const Home = () => {
   useEffect(() => {
     //  if(tokenState === 1)
     //  {
-      // const sessiondata = sessionStorage.getItem('sessionData');
-    
-      // const data = JSON.parse(sessiondata);
-      // console.log(data);
-      // const token = data.token;
-      // const promised_id = data.cardId;
-      const token = sessionStorage.getItem('token');
-      const promised_id = sessionStorage.getItem('cardId');
+    // const sessiondata = sessionStorage.getItem('sessionData');
+
+    // const data = JSON.parse(sessiondata);
+    // console.log(data);
+    // const token = data.token;
+    // const promised_id = data.cardId;
+    // const token = sessionStorage.getItem('token');
+    // const promised_id = sessionStorage.getItem('cardId');
+    const token = document.cookie
+      .split('; ')
+      .find(row => row.startsWith('token='))
+      .split('=')[1];
+
+    const promised_id = document.cookie
+      .split('; ')
+      .find(row => row.startsWith('cardId='))
+      .split('=')[1];
 
       fetchRewardType(token, promised_id);
-    // }
+
+
   }, []);
   return (
     < div className={classes.mainContainer}>
 
-      {bannerData.offerType === "GOLDCOIN" ? <GoldCoin offerValue={bannerData.offerValue} minimumSpend={bannerData.minimumSpend} /> : <Cashback offerValue={bannerData.offerValue} minimumSpend={bannerData.minimumSpend} />}
+      {bannerData.offerType === "GOLDCOIN"  && <GoldCoin offerValue={bannerData.offerValue} minimumSpend={bannerData.minimumSpend} />}
+      {bannerData.offerType === "CASHBACK"  && <Cashback offerValue={bannerData.offerValue} minimumSpend={bannerData.minimumSpend} /> }
+      
     </div>
 
   )
